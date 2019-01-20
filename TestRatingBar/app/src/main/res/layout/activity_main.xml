@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <RatingBar
+        style="@style/roomRatingBar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="16dp"
+        android:maxWidth="80dp"
+        android:minWidth="80dp"
+        android:numStars="5"
+        android:rating="1.5" />
+
+    <cn.demon96.testratingbar.MyRatingBar
+        android:id="@+id/rating_bar"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        app:starCount="5"
+        app:starEmpty="@mipmap/evaluation_icon_star"
+        app:starFill="@mipmap/evaluation_icon_star_pre"
+        app:starHalf="@mipmap/evaluation_icon_star"
+        app:starImageSize="40dp"
+        app:starPadding="20dp"
+        app:starStep="2"
+        app:stepSize="Full" />
+
 
 </LinearLayout>
