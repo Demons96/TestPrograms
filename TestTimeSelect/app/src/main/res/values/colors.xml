@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="c1olorAccent">#ffffff</color>
+
+    <color name="white">#fdfdfd</color>
+    <color name="yellow">#FFF6D434</color>
+    <color name="black">#000000</color>
+
+    <color name="app_white">#FFFFFF</color>
+    <color name="app_blue_color">#3c9bff</color>
+    <color name="transparent_background_light">#50000000</color>
+    <color name="province_line_border">#C7C7C7</color>
+
+    <!-- tap -->
+    <color name="text_color">#E38A7C</color>
+
+    <color name="start_color">#337E83</color>
+    <color name="end_color">#63B0A8</color>
+
+    <color name="page1_start_color">#336BB3</color>
+    <color name="page1_end_color">#61ABC0</color>
+
+    <color name="page2_start_color">#EE602C</color>
+    <color name="page2_end_color">#F2AB65</color>
+
+    <color name="page3_start_color">#75539F</color>
+    <color name="page3_end_color">#A87CB7</color>
+</resources>
