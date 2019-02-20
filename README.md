@@ -1,5 +1,11 @@
 ## 本文件用于收集记录测试运行的一些程序
 
+## TestBottomNavigationView
+底部导航 + RecyclerView
+
+## TestPhotoView
+相片查看
+
 ## TestRatingBar
 评分效果
 [自定义评价打分控件RatingBar](https://blog.csdn.net/linglongxin24/article/details/52918701)
@@ -12,6 +18,9 @@
 
 ## TestTimeSelect
 测试时间选择以及城市选择
+
+## TestVibration
+测试震动（不完善）
 
 ## TestZhuJianHua
 组件化编程入门
