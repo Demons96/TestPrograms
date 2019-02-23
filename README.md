@@ -6,6 +6,9 @@
 ## TestBottomNavigationView
 底部导航 + RecyclerView
 
+## TestInformationTransfer
+测试信息传递，用到了本地广播、EventBus
+
 ## TestPhotoView
 相片查看
 
