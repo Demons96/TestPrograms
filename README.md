@@ -6,6 +6,9 @@
 ## TestBottomNavigationView
 底部导航 + RecyclerView
 
+## TestGreenDAO
+试用 GreenDAO 数据库
+
 ## TestInformationTransfer
 测试信息传递，用到了本地广播、EventBus
 
