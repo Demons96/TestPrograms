@@ -31,6 +31,7 @@ public class OneActivity extends AppCompatActivity {
     }
 
     private void initTabLayout() {
+//        tabLayout.addTab(tabLayout.newTab().setText("啊哈哈3"));
         tabLayout.addOnTabSelectedListener(new TabLayout.BaseOnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
