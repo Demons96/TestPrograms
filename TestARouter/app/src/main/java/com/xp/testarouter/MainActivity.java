@@ -1,9 +1,10 @@
-package cn.demon96.testtablayoutandviewpager;
+package com.xp.testarouter;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import com.alibaba.android.arouter.launcher.ARouter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,8 +14,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void on1Click(View view) {
-        startActivity(new Intent(MainActivity.this, OneActivity.class));
+    public void onTest1Click(View view) {
+        // 1. 应用内简单的跳转(通过URL跳转在'进阶用法'中)
+        ARouter.getInstance()
+                .build(ARouterConfig.APP_TEST_ACT)
+                .navigation();
     }
-
 }
