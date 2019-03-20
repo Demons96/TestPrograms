@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>幸运大转盘</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #app{
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    #app .tit{
+      width: 100%;
+      height: 236px;
+      background: linear-gradient(183deg,#240031 10%, #fff 90%);
+      position: relative
+    }
+    #app .tit div {
+      width: 250px;
+      height: 242px;
+      background: url('./img/lucky_title_pic@2x.png') center no-repeat;
+      background-size: cover;
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      margin-left: calc(-250px / 2 )
+    }
+    #app .tit p{
+      width: 96px;
+      height: 34px;
+      line-height: 34px;
+      text-align: center;
+      background-color: rgba(0,0,0,0.5);
+      border-top-left-radius: 17px;
+      border-bottom-left-radius: 17px;
+      position: absolute;
+      right: 0;
+      top: 79px;
+      font-size:14px;
+      font-family:PingFang-SC-Medium;
+      font-weight:500;
+      color: #Fff;
+    }
+    #app p.title{
+      width: 80%;
+      height: 31px;
+      margin: 15px auto  30px;
+      line-height: 31px;
+      text-align:  center;
+      background-color: rgba(38,0,113,.2);
+      font-size: 14px;
+      font-family: PingFang-SC-Regular;
+      font-weight: 400;
+      color: #333333
+    }
+    div.turntable {
+      width: 226px;
+      height: 226px;
+      margin: 0 auto 67px;
+      /* background: url('./img/lucky_zp@2x.png') center no-repeat;
+      background-size: cover; */
+      position: relative;
+      border-radius: 50%;
+    }
+    div.turntable div.turn{
+      transition: all 3s ease;
+      display:block;
+      width: 226px;
+      height: 226px;
+      background: url('./img/lucky_zp@2x.png') center no-repeat;
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    div.turntable i.start{
+      width: 73px;
+      height: 81px;
+      background: url('./img/lucky_zd@2x (1).png') center no-repeat;
+      background-size: cover;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: calc(-81px / 2);
+      margin-left: calc(-73px / 2);
+    }
+    div.list {
+      width: 90%;
+      /* height: 282px; */
+      margin: 0 auto 35px;
+      padding-bottom: 10px;
+      background-color: #C2B7D7;
+    }
+    div.list div.titList{
+      display: flex;
+      background-color: #D4CCE3;
+      padding: 29px 0 10px;
+    }
+    div.list div.titList span {
+      flex: 1;
+      text-align: center;
+      font-size:18px;
+      font-family:PingFang-SC-Bold;
+      font-weight:bold;
+      color: #333333
+    }
+    div.list ul {
+      width: 95%;
+      margin: 0 auto;
+      background-color: #C2B7D7;
+      padding: 0 5px;
+      height: 226px;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling:touch
+    }
+    div.list ul::-webkit-scrollbar{
+      display: block;
+      width: 3px;
+      background-color: #615B6B;
+    }
+    div.list ul::-webkit-scrollbar-thumb{
+      background-color: #fff;
+      border-radius: 3px;
+    }
+    div.list ul li:last-child{
+      border: 0;
+    }
+    div.list ul li{
+      display: flex;
+      padding: 10px 0;
+      border-bottom: 1px solid #FFFFFF;
+    }
+    div.list ul li span{
+      flex: 1;
+      text-align: center;
+      font-size:14px;
+      font-family:PingFang-SC-Regular;
+      font-weight:400;
+      color:rgba(51,51,51,1);
+    }
+    div.rule-elastic {
+      width: 100%;
+      height: 100%;
+      background-color: RGBA(0, 0, 0, .5);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: none;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    div.rule-elastic div{
+      width: 283px;
+      height: 337px;
+      padding: 20px;
+      background-color: #fff;
+    }
+    div.rule-elastic i{
+      display: block;
+      width: 42px;
+      height: 42px;
+      margin: 40px auto 0;
+      background: url('./img/lucky_rule_close@2x.png') center no-repeat;
+      background-size: cover;
+    }
+    div.prize-elastic{
+      width: 100%;
+      height: 100%;
+      background-color: RGBA(0, 0, 0, .5);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    div.prize-elastic .pic{
+      width: 272px;
+      height: 316px;
+      /* margin: 190px auto 0; */
+      background: url('./img/luvky_zj_bg@2x.png') center no-repeat;
+      background-size: cover;
+      text-align: center;
+      position: relative;
+    }
+    div.prize-elastic .pic i {
+      display: block;
+      width: 130px;
+      height: 51px;
+      margin: 70px auto 0;
+      background: url('./img/lucjy_zj_title@2x.png') center no-repeat;
+      background-size: cover;
+    }
+    div.prize-elastic .pic p.Prize{
+      margin-top: 40px;
+      font-size:18px;
+      font-family:PingFang-SC-Bold;
+      font-weight:bold;
+      color:#333333;
+    }
+    div.prize-elastic .pic p.meizi{
+      margin-top: 35px;
+      font-size:14px;
+      font-family:PingFang-SC-Regular;
+      font-weight:400;
+      color: #333333;
+    }
+    div.posi{
+      height: 47px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-top:1px solid #CCCCCC;
+      display: flex;
+    }
+    div.posi span{
+      flex: 1;
+      display: inline-block;
+      height:47px;
+      line-height:47px;
+      font-size:14px;
+      font-family:MicrosoftYaHei;
+      font-weight:400;
+      color: #FE6EB8
+    }
+    div.posi span:first-child{
+      border-right: 1px solid #ccc;
+      color: #999999;
+    }
+    div.noprize-elastic{
+      width: 100%;
+      height: 100%;
+      background-color: RGBA(0, 0, 0, .5);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    div.noprize-elastic .no-bg{
+      width: 272px;
+      height: 316px;
+      background: url('./img/xxcy-bg.png') center no-repeat;
+      background-size: cover;
+      text-align: center;
+      position: relative;
+    }
+    div.noprize-elastic .no-bg i{
+      display: block;
+      width: 133px;
+      height: 34px;
+      margin: 140px auto 0;
+      background: url('./img/xxcy.png') center no-repeat;
+      background-size: cover;
+    }
+    div.noprize-elastic .no-bg p{
+      margin-top: 40px;
+      font-size:14px;
+      font-family:PingFang-SC-Regular;
+      font-weight:400;
+      color: #333333;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="tit">
+      <div></div>
+      <p onclick="isshow(0,event)">游戏规则</p>
+    </div>
+    <p class="title">恭喜133********12获得99M币</p>
+    <div class="turntable">
+      <div class="turn"></div>
+      <i class="start"></i>
+    </div>
+    <div class='list'>
+      <div class="titList">
+        <span>奖品</span>
+        <span>时间</span>
+        <span>消耗金币</span>
+      </div>
+      <ul>
+        <li>
+          <span>30分钟话费</span>
+          <span>10-10 22：12</span>
+          <span>免费</span>
+        </li>
+        <li>
+          <span>30分钟话费</span>
+          <span>10-10 22：12</span>
+          <span>免费</span>
+        </li>
+        <li>
+          <span>30分钟话费</span>
+          <span>10-10 22：12</span>
+          <span>免费</span>
+        </li>
+        <li>
+          <span>30分钟话费</span>
+          <span>10-10 22：12</span>
+          <span>免费</span>
+        </li>
+        <li>
+          <span>30分钟话费</span>
+          <span>10-10 22：12</span>
+          <span>免费</span>
+        </li>
+        <li>
+          <span>30分钟话费</span>
+          <span>10-10 22：12</span>
+          <span>免费</span>
+        </li>
+        <li>
+          <span>30分钟话费</span>
+          <span>10-10 22：12</span>
+          <span>免费</span>
+        </li>
+        <li>
+          <span>30分钟话费</span>
+          <span>10-10 22：12</span>
+          <span>免费</span>
+        </li>
+      </ul>
+    </div>
+    <div class="rule-elastic">
+      <div>
+        1. 炒糊了，你给谁吃啊！零星滚粗 <br>
+        2. 炒到第一阶段，一颗星 <br>
+        3. 炒到第二阶段，两颗星 <br>
+        4. 炒到第三阶段，三颗星 <br>
+      </div>
+      <i onclick="isshow(1,event)"></i>
+    </div>
+    <div class="prize-elastic" onclick='isshow(3,event)'>
+      <div class="pic" onclick='isshow(6,event)'>
+        <i></i>
+        <p class="Prize">你赢得了XXXX</p>
+        <p class="meizi">为了妹子，我要坚持</p>
+        <div class="posi">
+          <span onclick='isshow(3,event)'>愧对美女</span>
+          <span onclick='androidButton()'>M币充值</span>
+        </div>
+      </div>
+    </div>
+    <div class="noprize-elastic" onclick='isshow(5,event)'>
+      <div class="no-bg" onclick='isshow(6,event)'>
+        <i></i>
+        <p>为了妹子，我要坚持</p>
+        <div class="posi">
+          <span onclick='isshow(5,event)'>愧对美女</span>
+          <span>M币充值</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var du = 0 ,
+        rule = document.getElementsByClassName('rule-elastic')[0],
+        rota = document.getElementsByClassName('turn')[0],
+        clickstr = document.getElementsByClassName('start')[0],
+        text = document.getElementsByClassName('prize-elastic')[0],
+        textpri = document.getElementsByClassName('Prize')[0],
+        noprize = document.getElementsByClassName('noprize-elastic')[0],
+        isPrize = true,
+        isclick = true;
+
+    function androidButton(){
+      window.android.goToAndroid();
+    }
+    function isshow(num,e){
+      e.stopPropagation();
+      if(num == 0){
+        rule.style.display= 'flex';
+      }else if(num == 1){
+        rule.style.display= 'none';
+      }else if(num == 2){
+        text.style.display= 'flex';
+      }else if(num == 3){
+        text.style.display= 'none';
+      }else if(num == 4){
+        noprize.style.display = 'flex';
+      }else if(num == 5){
+        noprize.style.display= 'none';
+      }
+    }
+    function mathran(min,max){
+      return parseInt(Math.random()*(max-min) + min);//区间数
+    }
+    function start(){
+      let random = Math.round(Math.random()*99); //4舍五入
+      if(isclick){
+        isclick = false
+        console.log(random);
+        if(random < 5){  //19M币
+          du = mathran(46,90);
+          textpri.innerHTML= '你赢得了19M币';
+          isPrize = true;
+        }else if(random >= 5 && random < 70){//5M币
+          textpri.innerHTML= '你赢得了5M币';
+          du = mathran(316,360);
+          isPrize = true;
+        }else if(random >=70 && random <= 99){//谢谢参与
+          du = mathran(271,315);
+          isPrize = false;
+        }
+
+        du += 1440   //加转4圈先
+        rota.style.transition = 'all 3s ease'
+        rota.style.transform = 'rotate('+ du +'deg)';
+      }
+
+    }
+    clickstr.onclick = start;
+    rota.addEventListener('transitionend',function(){
+      isclick = true;
+      rota.style.transition = 'none'
+      rota.style.transform = 'none';
+      if(isPrize){
+        text.style.display= 'flex';
+      }else{
+        noprize.style.display= 'flex'
+      }
+    })
+
+  </script>
+</body>
+</html>
