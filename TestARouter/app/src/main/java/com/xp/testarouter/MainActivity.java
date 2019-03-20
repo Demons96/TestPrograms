@@ -20,4 +20,12 @@ public class MainActivity extends AppCompatActivity {
                 .build(ARouterConfig.APP_TEST_ACT)
                 .navigation();
     }
+
+    public void onTestPClick(View view) {
+        ARouter.getInstance()
+                .build(ARouterConfig.APP_TEST_ACT)
+                .withString("name", "Demon")
+                .withInt("age", 18)
+                .navigation();
+    }
 }
