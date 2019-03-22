@@ -6,6 +6,8 @@ import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 
+import cn.demon.base.ARouterConfig;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -13,9 +15,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
-    public void onTest1Click(View view) {
-        // 1. 应用内简单的跳转(通过URL跳转在'进阶用法'中)
+    
+    public void onTestActivityClick(View view) {
         ARouter.getInstance()
                 .build(ARouterConfig.APP_TEST_ACT)
                 .navigation();
@@ -26,12 +27,6 @@ public class MainActivity extends AppCompatActivity {
                 .build(ARouterConfig.APP_TEST_ACT)
                 .withString("name", "Demon")
                 .withInt("age", 18)
-                .navigation();
-    }
-
-    public void onTestSurfaceViewClick(View view) {
-        ARouter.getInstance()
-                .build(ARouterConfig.APP_SV_ACT)
                 .navigation();
     }
 }

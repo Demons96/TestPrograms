@@ -18,7 +18,6 @@ public class MyApplication extends Application {
     }
 
     private boolean isDebug() {
-        return true;
-//        return BuildConfig.DEBUG;
+        return BuildConfig.DEBUG;
     }
 }

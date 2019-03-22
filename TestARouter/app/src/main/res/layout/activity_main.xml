@@ -10,7 +10,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:text="Hello World!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -19,7 +18,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onTest1Click"
+            android:onClick="onTestActivityClick"
             android:text="测试界面1" />
 
         <Button
@@ -27,12 +26,6 @@
             android:layout_height="wrap_content"
             android:onClick="onTestPClick"
             android:text="测试带参数跳转" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onTestSurfaceViewClick"
-            android:text="SurfaceView" />
 
     </LinearLayout>
 
