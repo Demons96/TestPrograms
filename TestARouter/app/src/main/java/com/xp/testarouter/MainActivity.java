@@ -28,4 +28,10 @@ public class MainActivity extends AppCompatActivity {
                 .withInt("age", 18)
                 .navigation();
     }
+
+    public void onTestSurfaceViewClick(View view) {
+        ARouter.getInstance()
+                .build(ARouterConfig.APP_SV_ACT)
+                .navigation();
+    }
 }
