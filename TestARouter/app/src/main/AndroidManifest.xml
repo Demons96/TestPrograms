@@ -3,34 +3,22 @@
     package="com.xp.testarouter">
 
     <application
-        android:name=".MyApplication"
+        android:name="cn.demon.testarouter.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="cn.demon.testarouter.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".test.TestActivity" />
-        <activity android:name=".test.SchameFilterActivity">
-            <intent-filter>
-                <data
-                    android:host="m.alitun.com"
-                    android:scheme="arouter" />
-
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".test.SurfaceViewActivity"></activity>
+        <activity android:name="cn.demon.testarouter.test.TestActivity" />
     </application>
 
 </manifest>

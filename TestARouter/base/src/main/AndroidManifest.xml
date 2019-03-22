@@ -1,2 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cn.demon.base" />
+    package="cn.demon.base">
+
+    <application>
+        <activity android:name=".BaseActivity">
+            <intent-filter>
+                <action android:name="cn.demon.base.BaseActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
