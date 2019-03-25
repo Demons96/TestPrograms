@@ -19,7 +19,7 @@
 [AgentWeb WebView](https://github.com/Justson/AgentWeb)
 
 ## TestPhotoView
-相片查看
+相片查看、选择相片、视频、拍摄微信视频。
 
 ## TestRatingBar
 评分效果

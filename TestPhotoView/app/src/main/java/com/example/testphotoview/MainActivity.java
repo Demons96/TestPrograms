@@ -1,15 +1,14 @@
 package com.example.testphotoview;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 
-import com.github.chrisbanes.photoview.PhotoView;
+import com.example.testphotoview.act.ChooseActivity;
+import com.example.testphotoview.act.PhotoActivity;
+import com.example.testphotoview.act.JCameraViewActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,43 +16,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ViewPager viewPager = findViewById(R.id.view_pager);
-        viewPager.setAdapter(new SamplePagerAdapter());
     }
 
-    static class SamplePagerAdapter extends PagerAdapter {
-
-        private static final int[] sDrawables = {
-                R.drawable.wallpaper,
-                R.drawable.wallpaper,
-                R.drawable.wallpaper,
-                R.drawable.wallpaper,
-                R.drawable.wallpaper,
-                R.drawable.wallpaper};
-
-        @Override
-        public int getCount() {
-            return sDrawables.length;
-        }
-
-        @NonNull
-        @Override
-        public View instantiateItem(@NonNull ViewGroup container, int position) {
-            PhotoView photoView = new PhotoView(container.getContext());
-            photoView.setImageResource(sDrawables[position]);
-            // Now just add PhotoView to ViewPager and return it
-            container.addView(photoView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            return photoView;
-        }
-
-        @Override
-        public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-            container.removeView((View) object);
-        }
-
-        @Override
-        public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-            return view == object;
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_photo:
+                startActivity(new Intent(MainActivity.this, PhotoActivity.class));
+                break;
+            case R.id.btn_choose:
+                startActivity(new Intent(MainActivity.this, ChooseActivity.class));
+                break;
+            case R.id.btn_surface_view:
+                startActivity(new Intent(MainActivity.this, JCameraViewActivity.class));
+                break;
+            default:
+                break;
         }
     }
 }
