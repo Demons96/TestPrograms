@@ -7,6 +7,7 @@ import android.view.View;
 import com.example.testphotoview.act.ChooseActivity;
 import com.example.testphotoview.act.PhotoActivity;
 import com.example.testphotoview.act.JCameraViewActivity;
+import com.example.testphotoview.act.SurfaceViewVideoActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,8 +27,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_choose:
                 startActivity(new Intent(MainActivity.this, ChooseActivity.class));
                 break;
-            case R.id.btn_surface_view:
+            case R.id.btn_j_camera:
                 startActivity(new Intent(MainActivity.this, JCameraViewActivity.class));
+                break;
+            case R.id.btn_surface_view_view:
+                startActivity(new Intent(MainActivity.this, SurfaceViewVideoActivity.class));
                 break;
             default:
                 break;

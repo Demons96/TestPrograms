@@ -15,6 +15,9 @@ import com.zhihu.matisse.MimeType;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+/**
+ * 选着视频
+ */
 public class ChooseActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_CHOOSE = 23;
     private TextView tvShow;

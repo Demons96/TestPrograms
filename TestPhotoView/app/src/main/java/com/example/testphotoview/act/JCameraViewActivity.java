@@ -20,6 +20,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+/**
+ * 拍摄视频
+ */
 public class JCameraViewActivity extends AppCompatActivity {
     private JCameraView jcameraview;
 
