@@ -1,17 +1,12 @@
 package com.example.testphotoview.act;
 
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.testphotoview.PhotoFragment;
 import com.example.testphotoview.R;
-import com.example.testphotoview.view.adapter.SamplePagerAdapter;
-import com.github.chrisbanes.photoview.PhotoView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
 /**
  * 相片查看
@@ -23,18 +18,20 @@ public class PhotoActivity extends AppCompatActivity {
     private static final int[] sDrawables = {
             R.drawable.wallpaper,
             R.drawable.wallpaper,
-            R.drawable.wallpaper,
+            R.drawable.ic_launcher_background,
             R.drawable.wallpaper,
             R.drawable.wallpaper,
             R.drawable.wallpaper};
+
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
 
-        ViewPager viewPager = findViewById(R.id.view_pager);
-        viewPager.setAdapter(new SamplePagerAdapter(sDrawables));
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, PhotoFragment.newInstance(sDrawables, 1)).commit();
+
     }
 
 }

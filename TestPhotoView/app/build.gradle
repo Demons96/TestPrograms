@@ -34,4 +34,5 @@ dependencies {
     implementation 'com.zhihu.android:matisse:0.5.1'
     // 仿微信拍摄小视频
     implementation 'cjt.library.wheel:camera:1.1.9'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-alpha1'
 }

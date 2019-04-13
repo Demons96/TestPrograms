@@ -9,6 +9,9 @@
 ## TestBottomNavigationView
 底部导航 + RecyclerView
 
+## TestDataBinding
+数据绑定的例子
+
 ## TestGreenDAO
 试用 GreenDAO 数据库
 

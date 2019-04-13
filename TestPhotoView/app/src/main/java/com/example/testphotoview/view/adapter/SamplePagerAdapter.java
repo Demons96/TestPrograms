@@ -30,7 +30,6 @@ public class SamplePagerAdapter  extends PagerAdapter {
     public View instantiateItem(@NonNull ViewGroup container, int position) {
         PhotoView photoView = new PhotoView(container.getContext());
         photoView.setImageResource(sDrawables[position]);
-        // Now just add PhotoView to ViewPager and return it
         container.addView(photoView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         return photoView;
     }
