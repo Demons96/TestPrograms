@@ -1,4 +1,3 @@
 <resources>
     <string name="app_name">TestDataBinding</string>
-    <string name="linear_layout_manager">android.support.v7.widget.LinearLayoutManager</string>
 </resources>

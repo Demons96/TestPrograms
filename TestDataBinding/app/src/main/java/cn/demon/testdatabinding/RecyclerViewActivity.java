@@ -2,14 +2,14 @@ package cn.demon.testdatabinding;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableArrayList;
-import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import cn.demon.testdatabinding.databinding.ActivityRecyclerViewBinding;
 
@@ -23,16 +23,15 @@ public class RecyclerViewActivity extends AppCompatActivity {
     /**
      * 要展示的数据源
      */
-    public final ObservableArrayList<Student> showDatas = new ObservableArrayList<>();
+    public final ObservableArrayList<Student> showDataList = new ObservableArrayList<>();
 
     {
-        // 初始化数据源
         List<Student> students = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             students.add(new Student("学生:" + i));
         }
-        showDatas.clear();
-        showDatas.addAll(students);
+        showDataList.clear();
+        showDataList.addAll(students);
     }
 
     @Override
@@ -40,23 +39,43 @@ public class RecyclerViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ActivityRecyclerViewBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_recycler_view);
         binding.setActivity(this);
+
+        UserAdapter userAdapter;
+        binding.recyclerView.setAdapter(userAdapter = new UserAdapter(showDataList));
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        showDataList.addOnListChangedCallback(new DynamicChangeCallback(userAdapter));
     }
 
-    public void onBindItem(ViewDataBinding binding, final Object data, int position) {
-        binding.getRoot().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(RecyclerViewActivity.this, data.toString(), Toast.LENGTH_SHORT).show();
+    public void addItem(View view) {
+        if (showDataList.size() >= 3) {
+            Student user = new Student("user_" + 100 + String.valueOf(new Random().nextInt() * 4));
+            showDataList.add(1, user);
+        }
+    }
+
+    public void addItemList(View view) {
+        if (showDataList.size() >= 3) {
+            List<Student> userList = new ArrayList<>();
+            for (int i = 0; i < 3; i++) {
+                Student user = new Student("user_" + 100 + String.valueOf(new Random().nextInt() * 4));
+                userList.add(user);
             }
-        });
+            showDataList.addAll(1, userList);
+        }
     }
 
-    // 数据的实体类
-    public class Student {
-        public String name;
+    public void removeItem(View view) {
+        if (showDataList.size() >= 3) {
+            showDataList.remove(1);
+        }
+    }
 
-        public Student(String name) {
-            this.name = name;
+    public void updateItem(View view) {
+        if (showDataList.size() >= 3) {
+            Student user = showDataList.get(1);
+            user.name = "user_" + new Random().nextInt();
+            showDataList.set(1, user);
         }
     }
 }
