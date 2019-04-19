@@ -25,6 +25,6 @@ public class TestAgentWebActivity extends AppCompatActivity {
                 .interceptUnkownUrl() //拦截找不到相关页面的Scheme
                 .createAgentWeb()
                 .ready()
-                .go("http://www.jd.com");
+                .go("https://wanandroid.com/");
     }
 }
