@@ -29,4 +29,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="选择的日期：" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:onClick="onPathClick"
+        android:text="地址选择" />
+
 </LinearLayout>

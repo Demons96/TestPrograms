@@ -18,6 +18,7 @@ import java.util.Map;
 
 /**
  * @author lipiao
+ * 省
  * 城市数据初始化工具类
  */
 public class CityDataUtil {
@@ -51,8 +52,13 @@ public class CityDataUtil {
 
     public String LOCode = "";
 
+    public List<CityBean> getProvinceList() {
+        return provinceList;
+    }
+
     /**
      * 根据code获取城市名
+     *
      * @param pid
      * @param cid
      * @return
@@ -79,6 +85,7 @@ public class CityDataUtil {
 
     /**
      * 根据城市名获取code值
+     *
      * @param pidName
      * @param cidName
      * @return
@@ -133,6 +140,7 @@ public class CityDataUtil {
 
     /**
      * 读取本地json文件
+     *
      * @param ctx
      * @param file
      * @return

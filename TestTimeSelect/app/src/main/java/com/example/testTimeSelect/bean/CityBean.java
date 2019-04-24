@@ -3,6 +3,8 @@ package com.example.testTimeSelect.bean;
 import java.util.List;
 
 /**
+ * 市
+ *
  * Created by lipiao on 2016/9/5.
  */
 public class CityBean {

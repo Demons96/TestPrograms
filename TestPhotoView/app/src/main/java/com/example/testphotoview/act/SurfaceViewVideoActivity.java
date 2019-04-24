@@ -2,15 +2,14 @@ package com.example.testphotoview.act;
 
 import android.Manifest;
 import android.content.Intent;
-import android.hardware.Camera;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 
 import com.example.testphotoview.R;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -25,6 +24,7 @@ public class SurfaceViewVideoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_surface_view_video);
 
+        // 获取权限
         ActivityCompat.requestPermissions(this, new String[]{
                 Manifest.permission.RECORD_AUDIO,
                 Manifest.permission.CAMERA,
@@ -36,11 +36,25 @@ public class SurfaceViewVideoActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-        intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
-        //好使
-        intent.putExtra(MediaStore.EXTRA_SIZE_LIMIT, 10485760L);
-        intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 10);
-        startActivityForResult(intent, 111);
+        switch (view.getId()) {
+            case R.id.btn_local_camera:
+                Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+                intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
+                // 好使
+                intent.putExtra(MediaStore.EXTRA_SIZE_LIMIT, 10485760L);
+                intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 10);
+                startActivityForResult(intent, 111);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 111) {
+        }
     }
 }

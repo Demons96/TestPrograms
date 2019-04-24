@@ -1,6 +1,8 @@
 package com.example.testTimeSelect.bean;
 
 /**
+ * 区域
+ *
  * Created by lipiao on 2016/9/5.
  */
 public class AreaBean {

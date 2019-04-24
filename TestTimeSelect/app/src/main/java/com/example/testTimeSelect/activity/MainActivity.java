@@ -1,5 +1,6 @@
 package com.example.testTimeSelect.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private DialogSelectTime timeDialog;
     private DialogSelectAddress cityDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,5 +56,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onSelectCity(String selectedCity, String cityCode, String pidCode) {
         selectCity.setText(selectedCity + "  省编码：" + cityCode + "城市编码：" + pidCode);
+    }
+
+    public void onPathClick(View view) {
+        startActivity(new Intent(MainActivity.this, PickerViewActivity.class));
     }
 }

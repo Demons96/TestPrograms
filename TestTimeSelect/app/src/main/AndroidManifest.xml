@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.testTimeSelect">
+    package="com.example.testTimeSelect">
 
     <application
         android:allowBackup="true"
@@ -9,28 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.testTimeSelect.activity.MainActivity">
-
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.testTimeSelect.DataAndTime"/>
+        <activity android:name=".DataAndTime" />
         <activity
-            android:name="com.example.testTimeSelect.activity.TanchaungActivity"
+            android:name=".activity.TanchaungActivity"
             android:label=""
-            android:theme="@style/Theme.AppCompat.Dialog"/>
-        <activity android:name="com.example.testTimeSelect.TestNumberPickerView"/>
-        <activity android:name="com.example.testTimeSelect.activity.TestNPVDateActivity">
-        </activity>
-        <activity android:name="com.example.testTimeSelect.activity.TapActivity">
-        </activity>
-        <activity android:name="com.example.testTimeSelect.activity.BottomTabLayoutActivity">
-        </activity>
-        <activity android:name="com.example.testTimeSelect.activity.TestSeekBarActivity">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity android:name=".TestNumberPickerView" />
+        <activity android:name=".activity.TestNPVDateActivity"></activity>
+        <activity android:name=".activity.TapActivity"></activity>
+        <activity android:name=".activity.BottomTabLayoutActivity"></activity>
+        <activity android:name=".activity.TestSeekBarActivity"></activity>
+        <activity android:name=".activity.PickerViewActivity"></activity>
     </application>
 
 </manifest>
